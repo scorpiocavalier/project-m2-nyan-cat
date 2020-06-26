@@ -79,4 +79,4 @@ In order for the project to be deemed _successful_ and for you to receive a pass
 
 ### DUE DATE
 
-Your project is due on XX XXX, XXXX by XX:XX.
+**Your project is due on 30 JUN, 2020 by 17:00.**
