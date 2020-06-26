@@ -56,7 +56,7 @@ class Enemy {
     // We update the y property of the instance in proportion of the amount of time
     // since the last call to update. We also update the top css property so that the image
     // is updated on screen
-    this.y = this.y + timeDiff * this.speed;
+    this.y += timeDiff * this.speed;
     this.domElement.style.top = `${this.y}px`;
 
     // If the y position of the DOM element is greater than the GAME_HEIGHT then the enemy is at the bottom
