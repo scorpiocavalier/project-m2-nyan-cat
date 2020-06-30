@@ -92,6 +92,7 @@ class Engine {
       .filter(enemy => !enemy.destroyed)
       .forEach(enemy => this.root.removeChild(enemy.domElement))
     this.enemies = []
+    this.bg.dy = 2160
     SCORE = 0
     LEVEL = 1
     MAX_ENEMIES = 3
