@@ -15,7 +15,8 @@ const nextEnemySpot = (enemies) => {
 }
 
 function drawBg(ctx, image, dx, dy, x, y) {
-  ctx.drawImage(image, dx, dy, image.width, image.height, x, y, GAME_WIDTH, GAME_HEIGHT)
+  ctx.drawImage(image, dx, dy, 3820, 2160, x, y, GAME_WIDTH, GAME_HEIGHT)
+  // ctx.drawImage(image, dx, dy, image.width, image.height, x, y, GAME_WIDTH, GAME_HEIGHT)
 }
 
 function createBackground(ctx, x, y, dx, dy) {
