@@ -3,10 +3,15 @@ class Engine {
     this.root = theRoot
     this.player = new Player(this.root)
     this.enemies = []
+    this.statusText = new Text(root, 0, 0)
+    this.statusText.update('Start [Spacebar]')
+    this.statusText.center()
     addBackground(this.root)
   }
 
   gameLoop = () => {
+    this.statusText.hide()
+
     if (this.lastFrame === undefined) {
       this.lastFrame = new Date().getTime()
     }
@@ -27,8 +32,38 @@ class Engine {
       this.enemies.push(new Enemy(this.root, spot))
     }
 
-    this.isPlayerDead() ? window.alert('Game over') : setTimeout(this.gameLoop, 20)
+    if(this.isPlayerDead()) {
+      this.pause()
+      this.statusText.update(
+        `GAME OVER
+        [Spacebar to restart]`
+      )
+      this.statusText.center()
+      this.statusText.show()
+      this.setGameState(STATE.gameover)
+    } else {
+      this.run()
+    }
   }
+
+  run = () => {
+    this.timeoutID = setTimeout(this.gameLoop, 20)
+  }
+
+  pause = () => {
+    clearTimeout(this.timeoutID)
+  }
+
+  restart = () => {
+    this.enemies
+      .filter(enemy => !enemy.destroyed)
+      .forEach(enemy => this.root.removeChild(enemy.domElement))
+    this.enemies = []
+    this.lastFrame === undefined
+    this.gameLoop()
+  }
+
+  setGameState = state => CURRENT_STATE = state
 
   isPlayerDead = () => {
     for(const enemy of this.enemies) {

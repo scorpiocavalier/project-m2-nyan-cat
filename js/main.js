@@ -1,15 +1,26 @@
-const gameEngine = new Engine(document.getElementById('app'))
+const root = document.getElementById('app')
+const gameEngine = new Engine(root)
 
 const keydownHandler = (event) => {
-  if (event.code === 'ArrowLeft') {
-    gameEngine.player.moveLeft()
+  if(CURRENT_STATE !== STATE.gameover) {
+    if (event.code === 'ArrowLeft') {
+      gameEngine.player.moveLeft()
+    }
+  
+    if (event.code === 'ArrowRight') {
+      gameEngine.player.moveRight()
+    }
   }
-
-  if (event.code === 'ArrowRight') {
-    gameEngine.player.moveRight()
+  
+  if(event.code === 'Space') {
+    if(CURRENT_STATE === STATE.paused) {
+      gameEngine.setGameState(STATE.running)
+      gameEngine.gameLoop()
+    } else if (CURRENT_STATE === STATE.gameover) {
+      gameEngine.setGameState(STATE.paused)
+      gameEngine.restart()
+    }
   }
 }
 
 document.addEventListener('keydown', keydownHandler)
-
-gameEngine.gameLoop()
