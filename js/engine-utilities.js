@@ -1,35 +1,35 @@
 const nextEnemySpot = (enemies) => {
-  const enemySpots = GAME_WIDTH / ENEMY_WIDTH;
+  const enemySpots = GAME_WIDTH / ENEMY_WIDTH
 
-  const spotsTaken = [false, false, false, false, false];
+  const spotsTaken = [false, false, false, false, false]
   enemies.forEach((enemy) => {
-    spotsTaken[enemy.spot] = true;
-  });
+    spotsTaken[enemy.spot] = true
+  })
 
-  let candidate = undefined;
+  let candidate = undefined
   while (candidate === undefined || spotsTaken[candidate]) {
-    candidate = Math.floor(Math.random() * enemySpots);
+    candidate = Math.floor(Math.random() * enemySpots)
   }
 
-  return candidate;
-};
+  return candidate
+}
 
 const addBackground = (root) => {
-  const bg = document.createElement('img');
+  const bg = document.createElement('img')
 
-  bg.src = 'images/stars.png';
-  bg.style.height = `${GAME_HEIGHT}px`;
-  bg.style.width = `${GAME_WIDTH}px`;
+  bg.src = 'images/stars.png'
+  bg.style.height = `${GAME_HEIGHT}px`
+  bg.style.width = `${GAME_WIDTH}px`
 
-  root.append(bg);
+  root.append(bg)
 
-  const whiteBox = document.createElement('div');
+  const whiteBox = document.createElement('div')
 
-  whiteBox.style.zIndex = 100;
-  whiteBox.style.position = 'absolute';
-  whiteBox.style.top = `${GAME_HEIGHT}px`;
-  whiteBox.style.height = `${ENEMY_HEIGHT}px`;
-  whiteBox.style.width = `${GAME_WIDTH}px`;
-  whiteBox.style.background = '#fff';
-  root.append(whiteBox);
-};
+  whiteBox.style.zIndex = 100
+  whiteBox.style.position = 'absolute'
+  whiteBox.style.top = `${GAME_HEIGHT}px`
+  whiteBox.style.height = `${ENEMY_HEIGHT}px`
+  whiteBox.style.width = `${GAME_WIDTH}px`
+  whiteBox.style.background = '#fff'
+  root.append(whiteBox)
+}

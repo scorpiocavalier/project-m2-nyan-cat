@@ -1,15 +1,15 @@
-const gameEngine = new Engine(document.getElementById('app'));
+const gameEngine = new Engine(document.getElementById('app'))
 
 const keydownHandler = (event) => {
   if (event.code === 'ArrowLeft') {
-    gameEngine.player.moveLeft();
+    gameEngine.player.moveLeft()
   }
 
   if (event.code === 'ArrowRight') {
-    gameEngine.player.moveRight();
+    gameEngine.player.moveRight()
   }
-};
+}
 
-document.addEventListener('keydown', keydownHandler);
+document.addEventListener('keydown', keydownHandler)
 
-gameEngine.gameLoop();
+gameEngine.gameLoop()
