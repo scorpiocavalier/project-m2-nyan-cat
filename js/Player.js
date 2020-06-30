@@ -2,7 +2,7 @@ class Player {
   constructor(root) {
     this.x = 3 * PLAYER_WIDTH
 
-    this.y = GAME_HEIGHT - PLAYER_HEIGHT - 10
+    this.y = GAME_HEIGHT - PLAYER_HEIGHT + PLAYER_BOTTOM_SPAWN_OFFSET
 
     this.domElement = document.createElement('img')
     this.domElement.src = 'images/player-1.png'
@@ -39,7 +39,7 @@ class Player {
   }
 
   moveDown() {
-    if (this.y + PLAYER_HEIGHT < GAME_HEIGHT) {
+    if (this.y + PLAYER_HEIGHT < GAME_HEIGHT + PLAYER_BOTTOM_SPAWN_OFFSET) {
       this.y = this.y + PLAYER_HEIGHT
     }
     this.domElement.style.top = `${this.y}px`
