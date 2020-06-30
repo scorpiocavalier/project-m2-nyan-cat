@@ -4,7 +4,9 @@ class Engine {
     this.player = new Player(this.root)
     this.enemies = []
     this.scoreText = this.createScoreText(SCORE)
-    this.statusText = this.createCenteredText('Start [Spacebar]')
+    this.statusText = this.createCenteredText(
+      `[Space] Start`
+    )
     addBackground(this.root)
   }
 
@@ -36,7 +38,9 @@ class Engine {
       this.pause()
       this.statusText.update(
         `GAME OVER
-        [Spacebar to restart]`
+        Score: ${SCORE}
+
+        [Space] Restart]`
       )
       this.statusText.center()
       this.statusText.show()

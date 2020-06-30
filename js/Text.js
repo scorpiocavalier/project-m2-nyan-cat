@@ -31,7 +31,9 @@ class Text {
 
   center = () => {
     this.domElement.style.textAlign = 'center'
-    this.domElement.style.left = (GAME_WIDTH - this.domElement.clientWidth) / 2 
-    this.domElement.style.top = (GAME_HEIGHT - this.domElement.clientHeight) / 2
+    this.domElement.style.left = 
+      (GAME_WIDTH - this.domElement.clientWidth) / 2 
+    this.domElement.style.top = 
+      (GAME_HEIGHT - this.domElement.clientHeight) / 2
   }
 }
