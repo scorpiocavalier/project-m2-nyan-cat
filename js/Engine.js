@@ -97,6 +97,7 @@ class Engine {
     LEVEL = 1
     MAX_ENEMIES = 3
     this.scoreText.update(SCORE)
+    this.levelText.update(LEVEL)
     this.lastFrame === undefined
     this.gameLoop()
   }
