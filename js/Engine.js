@@ -64,14 +64,21 @@ class Engine {
   // the burger never dies. In your exercises you will fix this method.
   isPlayerDead = () => {
     for(const enemy of this.enemies) {
+      let enemy_head_offset = -10
+      let enemy_tail_offset = 0.6
 
-      let enemy_head_position = enemy.y + ENEMY_HEIGHT - 10
-      let enemy_tail_position = enemy.y + 2 * ENEMY_HEIGHT / 3
-      let player_tail_position = this.player.y + PLAYER_HEIGHT
+      let enemy_head    = enemy.y + ENEMY_HEIGHT + enemy_head_offset
+      let enemy_left    = enemy.x
+      let enemy_tail    = enemy.y + ENEMY_HEIGHT * enemy_tail_offset
 
-      if(enemy.x === this.player.x)
-        if(enemy_head_position >= this.player.y && enemy_tail_position <= player_tail_position)
-          return true
+      let player_head   = this.player.y
+      let player_left   = this.player.x
+      let player_tail   = this.player.y + PLAYER_HEIGHT
+
+      if(  player_left == enemy_left
+        && player_head <= enemy_head
+        && player_tail >= enemy_tail)
+        return true
     }
     return false
   };
