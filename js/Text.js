@@ -9,7 +9,6 @@ class Text {
     div.style.color = 'white'
     div.style.font = `bold 30px \'${font}\'`
     div.style.fontSize = '22px'
-    div.style.textAlign = 'left' 
     div.style.zIndex = 2000
     
     root.appendChild(div)

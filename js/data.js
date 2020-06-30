@@ -15,7 +15,7 @@ const PLAYER_HEIGHT = 120
 
 const GAME_LANES = 7
 const GAME_WIDTH = GAME_LANES * PLAYER_WIDTH
-const GAME_HEIGHT = 800
+const GAME_HEIGHT = 600
 
 const STATE = {
   'paused': 0,
