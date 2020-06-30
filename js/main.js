@@ -10,6 +10,14 @@ const keydownHandler = (event) => {
     if (event.code === 'ArrowRight') {
       gameEngine.player.moveRight()
     }
+    
+    if (event.code === 'ArrowUp') {
+      gameEngine.player.moveUp()
+    }
+    
+    if (event.code === 'ArrowDown') {
+      gameEngine.player.moveDown()
+    }
   }
   
   if(event.code === 'Space') {

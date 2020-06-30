@@ -78,8 +78,8 @@ class Engine {
 
   isPlayerDead = () => {
     for(const enemy of this.enemies) {
-      let enemy_head_offset = -10
-      let enemy_tail_offset = 0.6
+      let enemy_head_offset = -60
+      let enemy_tail_offset = 0.4
 
       let enemy_head    = enemy.y + ENEMY_HEIGHT + enemy_head_offset
       let enemy_left    = enemy.x
