@@ -2,7 +2,7 @@ const root = document.getElementById('app')
 const gameEngine = new Engine(root)
 
 const keydownHandler = (event) => {
-  if(CURRENT_STATE !== STATE.gameover) {
+  if(CURRENT_STATE == STATE.running) {
     if (event.code === 'ArrowLeft') {
       gameEngine.player.moveLeft()
     }
@@ -19,6 +19,7 @@ const keydownHandler = (event) => {
     } else if (CURRENT_STATE === STATE.gameover) {
       gameEngine.setGameState(STATE.paused)
       gameEngine.restart()
+      gameEngine.setGameState(STATE.running)
     }
   }
 }

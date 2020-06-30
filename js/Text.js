@@ -1,13 +1,15 @@
 class Text {
   constructor(root, xPos, yPos) {
+    const font = 'Orbitron'
     const div = document.createElement('div')
 
     div.style.position = 'absolute'
     div.style.left = xPos
     div.style.top = yPos
     div.style.color = 'white'
-    div.style.font = 'bold 30px Times New Roman'
-    div.style.textAlign = 'left'
+    div.style.font = `bold 30px \'${font}\'`
+    div.style.fontSize = '22px'
+    div.style.textAlign = 'left' 
     div.style.zIndex = 2000
     
     root.appendChild(div)

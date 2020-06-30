@@ -59,6 +59,8 @@ class Engine {
       .filter(enemy => !enemy.destroyed)
       .forEach(enemy => this.root.removeChild(enemy.domElement))
     this.enemies = []
+    SCORE = 0
+    this.scoreText.update(SCORE)
     this.lastFrame === undefined
     this.gameLoop()
   }
