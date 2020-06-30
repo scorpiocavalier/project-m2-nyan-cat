@@ -10,7 +10,7 @@ class Player {
     this.domElement.height = PLAYER_HEIGHT
     this.domElement.style.position = 'absolute'
     this.domElement.style.left = `${this.x}px`
-    this.domElement.style.top = ` ${this.y}px`
+    this.domElement.style.top = `${this.y}px`
     this.domElement.style.zIndex = '10'
     root.appendChild(this.domElement)
   }

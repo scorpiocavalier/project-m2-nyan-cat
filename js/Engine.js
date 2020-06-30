@@ -88,6 +88,9 @@ class Engine {
   }
 
   restart = () => {
+    this.player.domElement.remove()
+    this.player = new Player(this.root)
+
     this.enemies
       .filter(enemy => !enemy.destroyed)
       .forEach(enemy => this.root.removeChild(enemy.domElement))
@@ -97,7 +100,7 @@ class Engine {
     LEVEL = 1
     MAX_ENEMIES = 3
     this.scoreText.update(SCORE)
-    this.levelText.update(LEVEL)
+    this.levelText.update(`Level ${LEVEL}`)
     this.lastFrame === undefined
     this.gameLoop()
   }
