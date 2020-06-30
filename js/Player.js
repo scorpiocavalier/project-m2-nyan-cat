@@ -1,6 +1,6 @@
 class Player {
   constructor(root) {
-    this.x = 2 * PLAYER_WIDTH
+    this.x = 3 * PLAYER_WIDTH
 
     this.y = GAME_HEIGHT - PLAYER_HEIGHT - 10
 

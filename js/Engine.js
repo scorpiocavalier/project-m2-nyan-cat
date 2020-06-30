@@ -4,13 +4,14 @@ class Engine {
     this.player = new Player(this.root)
     this.enemies = []
     this.scoreText = this.createScoreText(SCORE)
-    this.statusText = this.createCenteredText(
-      `[Space] Start`
-    )
+    this.statusText = this.createCenteredText(`[Space] Start`)
+    this.levelText = this.createLevelText(`Level ${LEVEL}`)
     addBackground(this.root)
   }
 
   gameLoop = () => {
+
+    this.checkScore()
     this.statusText.hide()
     this.scoreText.update(SCORE)
 
@@ -38,7 +39,9 @@ class Engine {
       this.pause()
       this.statusText.update(
         `GAME OVER
+
         Score: ${SCORE}
+        Highest Level: ${LEVEL}
 
         [Space] Restart]`
       )
@@ -64,6 +67,8 @@ class Engine {
       .forEach(enemy => this.root.removeChild(enemy.domElement))
     this.enemies = []
     SCORE = 0
+    LEVEL = 1
+    MAX_ENEMIES = 3
     this.scoreText.update(SCORE)
     this.lastFrame === undefined
     this.gameLoop()
@@ -93,15 +98,33 @@ class Engine {
   }
 
   createCenteredText = txt => {
-    let statusText = new Text(root, 0, 0)
-    statusText.update(txt)
-    statusText.center()
-    return statusText
+    let text = new Text(root, 0, 0)
+    text.update(txt)
+    text.center()
+    return text
   }
   
   createScoreText = txt => {
-    let statusText = new Text(root, 20, 10)
-    statusText.update(txt)
-    return statusText
+    let text = new Text(root, 20, 10)
+    text.update(txt)
+    return text
+  }
+
+  createLevelText = txt => {
+    let text = new Text(root, 220, 10)
+    text.update(txt)
+    return text
+  }
+
+  checkScore = () => {
+    switch(SCORE) {
+      case 300: MAX_ENEMIES = 10; LEVEL = 8; this.levelText.update(`Level ${LEVEL}`); break;
+      case 250: MAX_ENEMIES =  9; LEVEL = 7; this.levelText.update(`Level ${LEVEL}`); break;
+      case 200: MAX_ENEMIES =  8; LEVEL = 6; this.levelText.update(`Level ${LEVEL}`); break;
+      case 150: MAX_ENEMIES =  7; LEVEL = 5; this.levelText.update(`Level ${LEVEL}`); break;
+      case 100: MAX_ENEMIES =  6; LEVEL = 4; this.levelText.update(`Level ${LEVEL}`); break;
+      case  50: MAX_ENEMIES =  5; LEVEL = 3; this.levelText.update(`Level ${LEVEL}`); break;
+      case  10: MAX_ENEMIES =  4; LEVEL = 2; this.levelText.update(`Level ${LEVEL}`); break;
+    }
   }
 }
