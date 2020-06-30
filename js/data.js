@@ -14,4 +14,6 @@ const STATE = {
   'gameover': 2
 }
 
+let SCORE = 0
+
 let CURRENT_STATE = STATE.paused

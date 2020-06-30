@@ -3,14 +3,14 @@ class Engine {
     this.root = theRoot
     this.player = new Player(this.root)
     this.enemies = []
-    this.statusText = new Text(root, 0, 0)
-    this.statusText.update('Start [Spacebar]')
-    this.statusText.center()
+    this.scoreText = this.createScoreText(SCORE)
+    this.statusText = this.createCenteredText('Start [Spacebar]')
     addBackground(this.root)
   }
 
   gameLoop = () => {
     this.statusText.hide()
+    this.scoreText.update(SCORE)
 
     if (this.lastFrame === undefined) {
       this.lastFrame = new Date().getTime()
@@ -84,5 +84,18 @@ class Engine {
         return true
     }
     return false
+  }
+
+  createCenteredText = txt => {
+    let statusText = new Text(root, 0, 0)
+    statusText.update(txt)
+    statusText.center()
+    return statusText
+  }
+  
+  createScoreText = txt => {
+    let statusText = new Text(root, 20, 10)
+    statusText.update(txt)
+    return statusText
   }
 }

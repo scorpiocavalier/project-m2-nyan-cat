@@ -6,7 +6,8 @@ class Text {
     div.style.left = xPos
     div.style.top = yPos
     div.style.color = 'white'
-    div.style.font = 'bold 30px Impact'
+    div.style.font = 'bold 30px Times New Roman'
+    div.style.textAlign = 'left'
     div.style.zIndex = 2000
     
     root.appendChild(div)

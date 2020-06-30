@@ -25,7 +25,7 @@ class Enemy {
 
     if (this.y > GAME_HEIGHT) {
       this.root.removeChild(this.domElement)
-
+      SCORE++
       this.destroyed = true
     }
   }
