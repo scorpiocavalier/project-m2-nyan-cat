@@ -6,10 +6,21 @@ class Engine {
     this.scoreText = this.createScoreText(SCORE)
     this.statusText = this.createCenteredText(`[Space] Start`)
     this.levelText = this.createLevelText(`Level ${LEVEL}`)
-    addBackground(this.root)
-  }
 
+    this.canvas = document.createElement('canvas')
+    this.canvas.width = GAME_WIDTH
+    this.canvas.height = GAME_HEIGHT
+    this.ctx = this.canvas.getContext('2d')
+    this.bg = createBackground(this.ctx, 0, 0, 0, 2160)
+    this.root.append(this.canvas)
+
+    addWhiteBox(this.root)
+  }
+  
   gameLoop = () => {
+    
+    // Loop background
+    this.animate()
 
     this.checkScore()
     this.statusText.hide()
@@ -51,6 +62,21 @@ class Engine {
     } else {
       this.run()
     }
+  }
+
+  animate = () => {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    this.updateBg()
+  }
+
+  updateBg = () => {
+    this.bg.dy == 0 && (this.bg.dy = 2160)
+    this.bg.dy--
+    this.ctx.drawImage(
+      this.bg.image, 
+      this.bg.dx, this.bg.dy, this.bg.image.width, this.bg.image.height, 
+      this.bg.x, this.bg.y, this.canvas.width, this.canvas.height
+    )
   }
 
   run = () => {
