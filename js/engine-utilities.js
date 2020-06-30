@@ -17,7 +17,8 @@ const nextEnemySpot = (enemies) => {
 const addBackground = (root) => {
   const bg = document.createElement('img')
 
-  bg.src = 'images/stars.png'
+  bg.src = 'images/bg-2.jpg'
+  // bg.src = 'images/stars.png'
   bg.style.height = `${GAME_HEIGHT}px`
   bg.style.width = `${GAME_WIDTH}px`
 

@@ -105,13 +105,13 @@ class Engine {
   }
   
   createScoreText = txt => {
-    let text = new Text(root, 20, 10)
+    let text = new Text(root, 30, 10)
     text.update(txt)
     return text
   }
 
   createLevelText = txt => {
-    let text = new Text(root, 220, 10)
+    let text = new Text(root, 305, 10)
     text.update(txt)
     return text
   }

@@ -1,11 +1,21 @@
-const GAME_WIDTH = 525
-const GAME_HEIGHT = 700
+// const GAME_WIDTH = 525
+// const GAME_HEIGHT = 700
 
-const ENEMY_WIDTH = 75
-const ENEMY_HEIGHT = 156
+// const ENEMY_WIDTH = 75
+// const ENEMY_HEIGHT = 156
 
-const PLAYER_WIDTH = 75
-const PLAYER_HEIGHT = 54
+// const PLAYER_WIDTH = 75
+// const PLAYER_HEIGHT = 54
+
+const ENEMY_WIDTH = 100
+const ENEMY_HEIGHT = 120
+
+const PLAYER_WIDTH = 100
+const PLAYER_HEIGHT = 120
+
+const GAME_LANES = 7
+const GAME_WIDTH = GAME_LANES * PLAYER_WIDTH
+const GAME_HEIGHT = 800
 
 const STATE = {
   'paused': 0,
