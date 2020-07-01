@@ -149,14 +149,20 @@ class Engine {
   }
 
   checkScore = () => {
-    switch(SCORE) {
-      case 300: MAX_ENEMIES = 10; LEVEL = 8; this.levelText.update(`Level ${LEVEL}`); break;
-      case 250: MAX_ENEMIES =  9; LEVEL = 7; this.levelText.update(`Level ${LEVEL}`); break;
-      case 200: MAX_ENEMIES =  8; LEVEL = 6; this.levelText.update(`Level ${LEVEL}`); break;
-      case 150: MAX_ENEMIES =  7; LEVEL = 5; this.levelText.update(`Level ${LEVEL}`); break;
-      case 100: MAX_ENEMIES =  6; LEVEL = 4; this.levelText.update(`Level ${LEVEL}`); break;
-      case  50: MAX_ENEMIES =  5; LEVEL = 3; this.levelText.update(`Level ${LEVEL}`); break;
-      case  10: MAX_ENEMIES =  4; LEVEL = 2; this.levelText.update(`Level ${LEVEL}`); break;
-    }
+    console.log('before:', MAX_ENEMIES, LEVEL)
+
+    if(  SCORE >=  10 && LEVEL == 1   
+      || SCORE >=  50 && LEVEL == 2  
+      || SCORE >= 100 && LEVEL == 3  
+      || SCORE >= 150 && LEVEL == 4  
+      || SCORE >= 200 && LEVEL == 5  
+      || SCORE >= 250 && LEVEL == 6  
+      || SCORE >= 300 && LEVEL == 7) 
+      {
+        MAX_ENEMIES++
+        LEVEL++
+        this.levelText.update(`Level ${LEVEL}`)
+        console.log('after:', MAX_ENEMIES, LEVEL)
+      }
   }
 }
