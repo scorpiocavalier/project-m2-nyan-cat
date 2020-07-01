@@ -48,6 +48,7 @@ class Engine {
 
     if(this.isPlayerDead()) {
       this.pause()
+      soundtrack.pause()
       this.statusText.update(
         `GAME OVER
 
