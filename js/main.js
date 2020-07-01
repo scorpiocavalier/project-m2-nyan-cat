@@ -1,4 +1,20 @@
+const body = document.querySelector('body')
+body.style.margin = '0'
+body.style.padding = '0'
+
+const section = document.querySelector('section')
+section.style.position = 'relative'
+section.style.display = 'flex'
+section.style.justifyContent = 'center'
+
 const root = document.getElementById('app')
+root.style.position = 'absolute'
+root.style.width = GAME_WIDTH
+root.style.height = GAME_HEIGHT
+
+
+
+
 const gameEngine = new Engine(root)
 
 // Audio
