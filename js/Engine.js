@@ -45,23 +45,7 @@ class Engine {
       this.enemies.push(new Enemy(this.root, spot))
     }
 
-    if(this.isPlayerDead()) {
-      this.pause()
-      soundtrack.pause()
-      this.statusText.update(
-        `GAME OVER
-
-        Score: ${SCORE}
-        Highest Level: ${LEVEL}
-
-        [Space] Restart]`
-      )
-      this.statusText.center()
-      this.statusText.show()
-      this.setGameState(STATE.gameover)
-    } else {
-      this.run()
-    }
+    this.isPlayerDead() ? this.endGame() : this.run()
   }
 
   animate = () => {
@@ -85,6 +69,22 @@ class Engine {
 
   pause = () => {
     clearTimeout(this.timeoutID)
+  }
+
+  endGame = () => {
+    this.pause()
+    soundtrack.pause()
+    this.statusText.update(
+      `GAME OVER
+
+      Score: ${SCORE}
+      Highest Level: ${LEVEL}
+
+      [Space] Restart]`
+    )
+    this.statusText.center()
+    this.statusText.show()
+    this.setGameState(STATE.gameover)
   }
 
   restart = () => {
@@ -148,20 +148,23 @@ class Engine {
   }
 
   checkScore = () => {
-    console.log('before:', MAX_ENEMIES, LEVEL)
+    if(SCORE >= 200) {
+      this.levelText.update('You are a Grandmaster!')
+      this.endGame()
+      return
+    }
 
     if(  SCORE >=  10 && LEVEL == 1   
       || SCORE >=  50 && LEVEL == 2  
       || SCORE >= 100 && LEVEL == 3  
-      || SCORE >= 150 && LEVEL == 4  
-      || SCORE >= 200 && LEVEL == 5  
-      || SCORE >= 250 && LEVEL == 6  
-      || SCORE >= 300 && LEVEL == 7) 
+      || SCORE >= 150 && LEVEL == 4)  
+    //|| SCORE >= 200 && LEVEL == 5
+    //|| SCORE >= 250 && LEVEL == 6  
+    //|| SCORE >= 300 && LEVEL == 7) 
       {
         MAX_ENEMIES++
         LEVEL++
         this.levelText.update(`Level ${LEVEL}`)
-        console.log('after:', MAX_ENEMIES, LEVEL)
       }
   }
 }
