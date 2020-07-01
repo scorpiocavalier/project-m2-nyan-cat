@@ -1,6 +1,7 @@
 const body = document.querySelector('body')
 body.style.margin = '0'
 body.style.padding = '0'
+body.style.backgroundColor = 'lightslategray'
 
 const section = document.querySelector('section')
 section.style.position = 'relative'
@@ -12,9 +13,6 @@ root.style.position = 'absolute'
 root.style.width = GAME_WIDTH
 root.style.height = GAME_HEIGHT
 
-
-
-
 const gameEngine = new Engine(root)
 
 // Audio
@@ -23,20 +21,11 @@ soundtrack.src = "./audio/Defense Line.mp3"
 
 const keydownHandler = (event) => {
   if(CURRENT_STATE == STATE.running) {
-    if (event.code === 'ArrowLeft') {
-      gameEngine.player.moveLeft()
-    }
-  
-    if (event.code === 'ArrowRight') {
-      gameEngine.player.moveRight()
-    }
-    
-    if (event.code === 'ArrowUp') {
-      gameEngine.player.moveUp()
-    }
-    
-    if (event.code === 'ArrowDown') {
-      gameEngine.player.moveDown()
+    switch(event.code) {
+      case 'ArrowLeft': gameEngine.player.moveLeft(); break;
+      case 'ArrowRight': gameEngine.player.moveRight(); break;
+      case 'ArrowUp': gameEngine.player.moveUp(); break;
+      case 'ArrowDown': gameEngine.player.moveDown(); break;
     }
   }
   

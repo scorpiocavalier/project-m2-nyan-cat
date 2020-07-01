@@ -14,11 +14,10 @@ class Engine {
     this.bg = createBackground(this.ctx, 0, 0, 0, 2160)
     this.root.append(this.canvas)
 
-    addWhiteBox(this.root)
+    addHiddenBox(this.root)
   }
   
   gameLoop = () => {
-    
     // Loop background
     this.animate()
 
@@ -75,8 +74,7 @@ class Engine {
     this.bg.dy--
     this.ctx.drawImage(
       this.bg.image, 
-      this.bg.dx, this.bg.dy, 3820, 2160, 
-      // this.bg.dx, this.bg.dy, this.bg.image.width, this.bg.image.height, 
+      this.bg.dx, this.bg.dy, 3820, 2160,
       this.bg.x, this.bg.y, this.canvas.width, this.canvas.height
     )
   }

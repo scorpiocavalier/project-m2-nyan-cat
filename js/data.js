@@ -1,12 +1,3 @@
-// const GAME_WIDTH = 525
-// const GAME_HEIGHT = 700
-
-// const ENEMY_WIDTH = 75
-// const ENEMY_HEIGHT = 156
-
-// const PLAYER_WIDTH = 75
-// const PLAYER_HEIGHT = 54
-
 const ENEMY_WIDTH = 100
 const ENEMY_HEIGHT = 120
 
